@@ -39,6 +39,7 @@ static const struct config_app_option global_options[] = {
 		   CONFIG_TYPE_TIME),
 	APP_OPTION("ApplicationTxBaseOffsetNS", application_tx_base_offset_ns, CONFIG_TYPE_TIME),
 	APP_OPTION("ApplicationRxBaseOffsetNS", application_rx_base_offset_ns, CONFIG_TYPE_TIME),
+	APP_OPTION("ApplicationRxTriggeredTx", application_rx_triggered_tx, CONFIG_TYPE_BOOL),
 	APP_STRING_OPTION("ApplicationXdpProgram", application_xdp_program),
 
 	APP_OPTION("LogThreadPriority", log_thread_priority, CONFIG_TYPE_INT),
@@ -898,6 +899,7 @@ int config_set_defaults(bool mirror_enabled)
 	app_config.application_base_start_time_ns = (current.tv_sec + 30) * NSEC_PER_SEC;
 	app_config.application_tx_base_offset_ns = 800000;
 	app_config.application_rx_base_offset_ns = 300000;
+	app_config.application_rx_triggered_tx = false;
 	app_config.application_xdp_program = strdup(default_xdp_program);
 	if (!app_config.application_xdp_program)
 		goto out;

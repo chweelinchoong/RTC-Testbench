@@ -45,6 +45,9 @@ Possible parameters include:
    * - ApplicationRxBaseOffsetNS (Integer)
      - Execution offset of Rx threads within Application cycle time
 
+   * - ApplicationRxTriggeredTx (Boolean)
+     - In mirror mode, trigger Tx after Rx and any enabled Rx workload finish; preserves traffic-class Tx order
+
    * - ApplicationXdpProgram (String)
      - Application specific XDP program
 
